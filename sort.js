@@ -51,4 +51,8 @@ function quickSort(arr) {
 	return [].concat(quickSort(left),[base],quickSort(right))
 }
 
-quickSort(arr)
+
+
+const flatten = arr => arr.reduce((acc, item) => {
+		return acc.concat(Array.isArray(item) ? flatten(item) : item)
+	}, [])
