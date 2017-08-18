@@ -30,3 +30,25 @@ function bark(arr) {
 		at++;
 	}
 }
+
+var arr = [4,5,6,1,2,3]
+
+function quickSort(arr) {
+	if (arr.length <= 1) {
+		return arr
+	}
+
+	var base = arr[0]
+	var left = []
+	var right = []
+	for (var i = 1; i < arr.length; i++) {
+		if (arr[i] <= base) {
+			left.push(arr[i])
+		} else {
+			right.push(arr[i])
+		}
+	}
+	return [].concat(quickSort(left),[base],quickSort(right))
+}
+
+quickSort(arr)
